@@ -26,8 +26,23 @@ public class Plot
         // the number of even and odd rows,
         // the number of columns in each even and odd row,
         // and finally the total number of fields
-        int num_row = (int)length/(radius*2);
-        int num_even = (int) (width-radius)/(radius*2);
+      int diameter = radius * 2;
+        
+        int numOfRows = (int) ((length-diameter)/(radius * Math.sqrt(3)))+1;
+        System.out.print(numOfRows);
+        int columnPerOddRow = (int) width/diameter;
+        int columnPerEvenRow = (int) (width-radius)/diameter;
+        
+        int oddRows = (int)((numOfRows/2) + (numOfRows%2));
+        int evenRows = (int) (numOfRows/2);
+        //Debug Purpose
+        //System.out.println("Colnumoddrow"+columnPerOddRow);
+        //System.out.println("Oddrow"+oddRows);
+        //System.out.println("Colnumevenrow"+columnPerEvenRow);
+        //System.out.println("evenrow"+evenRows);
+        int answer = (columnPerOddRow * oddRows) + (columnPerEvenRow * evenRows);
+        
+        return answer;
         
         
         
